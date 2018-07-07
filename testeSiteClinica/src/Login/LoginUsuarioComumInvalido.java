@@ -16,7 +16,7 @@ public class LoginUsuarioComumInvalido {
 	
 	@Before
 	public void antes() {
-		System.setProperty("webdriver.gecko.driver", "C:\\Users\\181620013.SENACINFO\\eclipse\\java-oxygen\\eclipse\\geckodriver.exe");
+		System.setProperty("webdriver.gecko.driver", "C:\\uc13\\geckodriver.exe");
 		pagina = new FirefoxDriver();
 		pagina.get("https://10.10.139.4/n162/ClinicaOftalmo/index.php");
 		

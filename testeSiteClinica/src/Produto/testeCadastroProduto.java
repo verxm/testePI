@@ -1,5 +1,8 @@
 package Produto;
 
+import javax.swing.JOptionPane;
+
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
@@ -14,7 +17,7 @@ public class testeCadastroProduto {
 	
 	@Before
 	public void antes() {
-		System.setProperty("webdriver.gecko.driver", "C:\\Users\\181620013.SENACINFO\\eclipse\\java-oxygen\\eclipse\\geckodriver.exe");
+		System.setProperty("webdriver.gecko.driver", "C:\\uc13\\geckodriver.exe");
 		pagina = new FirefoxDriver();
 		pagina.get("https://10.10.139.4/n162/ClinicaOftalmo/index.php");
 		
@@ -54,8 +57,15 @@ public class testeCadastroProduto {
 		etCodigoBarras.sendKeys("132321145");
 		categoria.selectByIndex(2);
 		
-		
-		
+		btnSalvar.click();
+			
+		try {
+			WebElement botaoConfirmaTeste = pagina.findElementByXPath("/html/body/a/button");
+			JOptionPane.showMessageDialog(null, "Produto Cadastrado com sucesso");
+		} catch (Exception e) {
+			String mensagem = "Teste encontrou algum erro pois não chegou ao resultado esperado";
+			JOptionPane.showMessageDialog(null, mensagem);
+		}
 		
 		
 		
@@ -63,23 +73,11 @@ public class testeCadastroProduto {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@After
+	public void depois() {
+		pagina.close();
+		
+	}
 	
 	
 	
